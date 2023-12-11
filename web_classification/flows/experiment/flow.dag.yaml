@@ -60,7 +60,7 @@ node_variants:
           inputs:
             deployment_name: tr-prod-openai-gpt-35-turbo-0613
             max_tokens: 128
-            temperature: 0.2
+            temperature: 0.5
             text: ${fetch_text_content_from_url.output}
           provider: AzureOpenAI
           connection: tr-prod-opeai-connection
