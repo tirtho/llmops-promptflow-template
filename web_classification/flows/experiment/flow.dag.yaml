@@ -32,14 +32,14 @@ nodes:
     type: code
     path: classify_with_llm.jinja2
   inputs:
-    deployment_name: gpt-35-turbo
+    deployment_name: tr-prod-openai-gpt-35-turbo-0613
     max_tokens: 128
     temperature: 0.2
     url: ${inputs.url}
     text_content: ${summarize_text_content.output}
     examples: ${prepare_examples.output}
   provider: AzureOpenAI
-  connection: aoai
+  connection: tr-prod-opeai-connection
   api: chat
 - name: convert_to_dict
   type: python
@@ -58,12 +58,12 @@ node_variants:
             type: code
             path: summarize_text_content.jinja2
           inputs:
-            deployment_name: gpt-35-turbo
+            deployment_name: tr-prod-openai-gpt-35-turbo-0613
             max_tokens: 128
             temperature: 0.2
             text: ${fetch_text_content_from_url.output}
           provider: AzureOpenAI
-          connection: aoai
+          connection: tr-prod-opeai-connection
           api: chat
           module: promptflow.tools.aoai
       variant_1:
@@ -73,12 +73,12 @@ node_variants:
             type: code
             path: summarize_text_content__variant_1.jinja2
           inputs:
-            deployment_name: gpt-35-turbo
+            deployment_name: tr-prod-openai-gpt-35-turbo-0613
             max_tokens: 256
             temperature: 0.3
             text: ${fetch_text_content_from_url.output}
           provider: AzureOpenAI
-          connection: aoai
+          connection: tr-prod-opeai-connection
           api: chat
           module: promptflow.tools.aoai
     default_variant_id: variant_0

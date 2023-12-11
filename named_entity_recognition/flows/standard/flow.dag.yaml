@@ -1,6 +1,4 @@
-$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
-inputs:
-  entity_type:
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json inputs: entity_type:
     type: string
     default: job title
   text:
@@ -23,7 +21,7 @@ nodes:
     text: ${inputs.text}
     entity_type: ${inputs.entity_type}
   provider: AzureOpenAI
-  connection: aoai
+  connection: tr-prod-opeai-connection
   api: chat
   module: promptflow.tools.aoai
 - name: cleansing
